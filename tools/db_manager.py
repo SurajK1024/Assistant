@@ -65,7 +65,7 @@ class DBManager:
                 session.query(UserReminder)
                 .filter(
                     UserReminder.user_id == user_id,
-                    UserReminder.reminder_at_utc >= now,
+                    UserReminder.reminder_date >= now,
                     UserReminder.is_completed == 0
                 )
                 .all()
@@ -75,7 +75,8 @@ class DBManager:
                 {
                     "id": r.id,
                     "title": r.title,
-                    "reminder_at": str(r.reminder_at_utc)
+                    "reminder_at": str(r.reminder_date),
+                    "category": r.category
                 }
                 for r in reminders
             ]
