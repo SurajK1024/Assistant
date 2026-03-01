@@ -4,7 +4,7 @@ from . import Base
 class UserReminder(Base):
     __tablename__ = "user_reminders"
 
-    id = Column(BigInteger, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
 
     # REQUIRED
     user_id = Column(BigInteger, nullable=False)
